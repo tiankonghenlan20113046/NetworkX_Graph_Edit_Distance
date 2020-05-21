@@ -8,19 +8,19 @@ class GRECCostFunctions(CostFunctions):
         super(CostFunctions, self).__init__()
 
     def node_substitution_cost(self, start, end): #定义节点替换代价
-        if(start["type"]==end["type"]):
+        if(start["type"]==end["type"]):#节点类型相同时候，节点替换代价为俩个点的欧式距离
             x_start, y_start = float(start["x"]), float(start["y"])
             x_end, y_end = float(end["x"]), float(end["y"])
             distance =  math.sqrt(math.pow((x_end - x_start), 2.)
                                 + math.pow((y_end - y_start), 2.))
             return 0.5 * distance
-        else:
+        else: #节点的类型不同时，节点的替换代价为90
             return  90
 
-    def node_deletion_cost(self, start):
+    def node_deletion_cost(self, start):#定义节点的删除代价，45
         return 45
 
-    def node_insertion_cost(self, end):
+    def node_insertion_cost(self, end):#定义节点的插入代价：45
         return 45
 
     def edge_substitution_cost(self, start,end):
