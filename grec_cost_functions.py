@@ -7,7 +7,7 @@ class GRECCostFunctions(CostFunctions):
     def __init__(self):
         super(CostFunctions, self).__init__()
 
-    def node_substitution_cost(self, start, end):
+    def node_substitution_cost(self, start, end): #定义节点替换的代价
         if(start["type"]==end["type"]):
             x_start, y_start = float(start["x"]), float(start["y"])
             x_end, y_end = float(end["x"]), float(end["y"])
